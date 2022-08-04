@@ -58,7 +58,7 @@ Por meio deste teste queremos validar sua aptidão e conhecimento para encarar o
     * **Frontend:** React.js;
 * Armazene os produtos cadastrados em um banco de dados de sua preferência. *(Mysql, Postgres, etc.)*;
   
-**Diferenciais**
+**Diferenciais:**
 * Conhecimento em **Docker**. Exemplo de aplicação do teste: Subir o banco de dados;
 * Conhecimento de **migrations**. Exemplo na aplicação do teste: Criar de forma automatica a tabela no banco de dados;
 * Conhecimento **Teste**. Exemplo na aplicação do teste: Criar teste para cada uma das funcionalidades (CRUD);
