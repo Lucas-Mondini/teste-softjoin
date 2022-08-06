@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+    postgres:
+      container_name: postgres_container
+      image: postgres:14.1-alpine
+      environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=BBox@123
+      - POSTGRES_DB=Softjoin
+      volumes:
+        - ./postgres:/data/postgres
+      ports:
+        - "5432:5432"
+      networks:
+        softjoin:
+          ipv4_address: 172.0.0.2
+      restart: unless-stopped
+    front:
+      container_name: front
+      build: 
+        context: ./docker
+      ports:
+        - "3000:3000"
+      volumes:
+      - ./softjoin-front:/node
+    api:
+      container_name: api
+      build: 
+        context: ./docker
+      ports:
+        - "8080:8080"
+      volumes:
+      - ./softjoin-api:/node
+      networks:
+        softjoin:
+          ipv4_address: 172.0.0.3
+      depends_on:
+        - postgres
+networks:
+  softjoin:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.0.0.0/16
+          gateway: 172.0.0.1

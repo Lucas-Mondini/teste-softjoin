@@ -24,7 +24,7 @@ const inputs = `
         border-radius: 3px;
         color: ${colors.text};
         ::placeholder {
-            color: ${colors.text};
+            color: grey;
         }
         :disabled {
             background: ${colors.quinary};
